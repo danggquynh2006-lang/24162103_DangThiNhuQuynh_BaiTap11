@@ -1,0 +1,12 @@
+<sitemesh>
+    <!-- Vai trò Admin -->
+    <mapping path="/admin/*" decorator="admin-decorator.jsp"/>
+    <!-- Vai trò User (mặc định) -->
+    <mapping path="/*" decorator="user-decorator.jsp"/>
+
+    <!-- Không decorate các trang này -->
+    <mapping path="/login" exclude="true"/>
+    <mapping path="/register" exclude="true"/>
+    <mapping path="/verify" exclude="true"/>
+    <mapping path="/images/*" exclude="true"/>
+</sitemesh>
