@@ -46,11 +46,21 @@ public class OrderServiceImpl_24162103 implements IOrderService_24162103 {
         order.setAddress(address);
         order.setPaymentMethod("COD");
         order.setTotalAmount(total);
-        order.setStatus("Chờ xác nhận");
+        order.setStatus("Đơn hàng mới");
 
         orderDao.insertOrder(order, details);
-        cartDao.deleteAllByUsername(username); // thanh toan xong thi xoa gio hang
+        cartDao.deleteAllByUsername(username);
 
         return order;
+    }
+
+    @Override
+    public List<Order_24162103> getOrderHistory(String username, String status) {
+        return orderDao.findByUsernameAndStatus(username, status);
+    }
+
+    @Override
+    public Order_24162103 getOrderDetail(Integer orderId, String username) {
+        return orderDao.findByIdWithDetails(orderId, username);
     }
 }

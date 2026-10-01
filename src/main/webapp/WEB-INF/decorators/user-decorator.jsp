@@ -18,7 +18,7 @@
     <sitemesh:write property="head"/>
 </head>
 <body>
-    <%-- Decorator vai tro USER. Menu "Trang quan tri" va "Gio Hang" chi hien khi da dang nhap --%>
+    <%-- Decorator vai tro USER. Menu "Trang quan tri", "Gio Hang", "Don Hang" chi hien khi da dang nhap --%>
     <header>
         <h2>Perfume Store &amp; Video</h2>
         <nav>
@@ -27,6 +27,7 @@
             <c:choose>
                 <c:when test="${sessionScope.account != null}">
                     <a href="${pageContext.request.contextPath}/cart">Giỏ Hàng</a>
+                    <a href="${pageContext.request.contextPath}/orders">Đơn Hàng</a>
                     <span class="user-greeting">Xin chào, ${not empty sessionScope.account.fullname ? sessionScope.account.fullname : sessionScope.account.username}</span>
                     <c:if test="${sessionScope.account.admin}">
                         <a href="${pageContext.request.contextPath}/admin/videos">Trang Quản Trị</a>
